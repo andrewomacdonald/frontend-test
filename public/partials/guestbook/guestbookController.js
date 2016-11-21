@@ -6,11 +6,11 @@
 
     function guestbookController($scope, $rootScope, guestbookFactory) {
 
+      $scope.phoneNumberRegex = /^\(\d{3}\)\d{3}-\d{4}$/;
+
       $scope.writeToGuestbook = function() {
+
         guestbookFactory.writeToGuestbook($scope.user, $scope.phoneNumber, $scope.message).then(function(response){
-          response.data.forEach(function(value) {
-            console.log(typeof value.phone);
-          })
           $scope.messages = response.data;
           console.log($scope.messages);
         });

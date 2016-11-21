@@ -1,9 +1,19 @@
 <H1>I AM A GUESTBOOK.</H1>
-<form ng-submit='writeToGuestbook()' name='guestbookForm'>
-  <div class='formFields'>
-    <input type='text' ng-model='phoneNumber' name='number' placeholder='Phone Number' required/>
-  </div>
-  <textarea class='messageArea' ng-model='message' placeholder='Enter a message here! FOR AMERICA.' required/></textarea>
+<form ng-submit='guestbookForm.$valid && writeToGuestbook()' name='guestbookForm'>
+  <input class='phoneNumber'
+         type='text'
+         ng-model='phoneNumber'
+         ng-pattern='phoneNumberRegex'
+         name='number'
+         placeholder='Your phone number'
+         required/>
+  <p class='phoneNotification' ng-if='guestbookForm.number.$invalid'>Please enter a phone number in the format of (xxx)xxx-xxxx</p>
+  <p class='phoneNotification' ng-if='guestbookForm.number.$valid'>You entered the correct phone format! CHECK OUT THE BIG BRAIN ON YOU.</p>
+  <textarea class='messageArea'
+            ng-model='message'
+            placeholder='Enter a message here! FOR AMERICA.'
+            maxlength='200'
+            required/>
   <button type='submit'>Submit message!</button>
 </form>
 

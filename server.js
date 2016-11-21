@@ -15,9 +15,11 @@ var users={
     charlie: "password3",
     dan: "password4"
 };
-var msgs=[
+var msgs = [
+    {user:'Taylor Swift', phone:'222-222-2222', message:"I'VE GOT A BLANK SPACE ON THIS TEAM ROSTER, AND ILL WRITE ANDY'S NAME"},
+    {user:'Kanye West', phone:'123-456-7890', message:"YO IMMA LET YOU FINISH BUT FIRST YOU SHOULD HIRE ANDY"},
     {user:"kilroy", phone: "123 555 1212", message:"was here!"}
-]
+];
 
 app.use(cookieParser());
 app.use(bodyParser.json());
@@ -132,6 +134,6 @@ app.get('/read', function(request, response) {
 
 app.use(express.static(__dirname+'/public'));
 
-var server=app.listen(8888, function() {
-    console.log("We have started our server at http://localhost:8888");
+var server=app.listen(8080, function() {
+    console.log("We have started our server at http://localhost:8080");
 });

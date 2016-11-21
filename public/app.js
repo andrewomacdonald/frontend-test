@@ -6,7 +6,7 @@
 
 
 (function() {
-  angular.module('techniColor', ['ui.router', 'infinite-scroll'])
+  angular.module('techniColor', ['ui.router'])
     .config(['$stateProvider', function($stateProvider) {
 
       var applicationStates = [{

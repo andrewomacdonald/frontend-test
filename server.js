@@ -122,7 +122,7 @@ app.post('/write', function(request, response) {
         response.send("Bad request");
         return;
     }
-    msgs.push({user:user, phone:phone, message: msg});
+    msgs.unshift({user:user, phone:phone, message: msg});
     response.json(msgs);
 });
 

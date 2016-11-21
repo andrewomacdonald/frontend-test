@@ -9,7 +9,6 @@ angular.module('techniColor')
 
     factory.writeToGuestbook = function (user, phoneNumber, msg) {
       return $http.post('/write', {'user':user, 'phone':phoneNumber, 'message': msg}).then(function(data) {
-        console.log('INSIDE WRITE TO GUESTBOOK FACTORY ', data);
         return data;
       }).catch(function(error) {
         console.log('FACTORY ERROR ', error);
@@ -19,6 +18,9 @@ angular.module('techniColor')
     factory.readGuestbook = function () {
       return $http.get('/read').then(function(data) {
         console.log('INSIDE READ GUESTBOOK FACTORY', data);
+        return data;
+      }).catch(function(error) {
+        console.log('FACTORY ERROR ', error);
       });
     }
     return factory;

@@ -1,0 +1,25 @@
+<H1>USA! USA! USA!</H1>
+<div>
+  <select ng-model='abbrev'
+          class='stateDropdown'
+          ng-change='getSpecificState()'>
+    <option value='' disabled='disabled'>---Select A State!---</option>
+    <option ng-repeat='abbreviation in abbreviations'>{{abbreviation}}</option>
+  </select>
+  <button type='button' ng-click='stateList()' ng-if='oneState'>Reset the entire List!</button>
+</div>
+<div class='state-container'
+     ng-repeat='state in states'
+     ng-class='oneState ? "singleState" : "stateContainter"'>
+  <div class='stateName'>{{state.name}} ({{state.abbreviation}})</div>
+    <div class='left-info'>
+      <p><span class='fieldName'>Capital:</span> {{state.capital}}</p>
+      <p><span class='fieldName'>Most Populous City:</span> {{state['most-populous-city']}}</p>
+      <p><span class='fieldName'>Population:</span> {{state.population}} 'MERICANS!</p>
+    </div>
+    <div class='pull-right'>
+      <p><span class='fieldName'>Size:</span> {{state['square-miles']}} square miles. WOWZERS!<p>
+      <p><span class='fieldName'>TimeZone:</span> {{state['time-zone-1']}} {{state['time-zone-2']}}</span></p>
+      <p><span class='fieldName'>Do they have Daylight Savings Time?</span> {{state.dst}}</p>
+    </div>
+</div>

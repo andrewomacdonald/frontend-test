@@ -1,6 +1,8 @@
-<H1>I AM A LOGIN PAGE.</H1>
-<form ng-submit='loginUser()'>
-  <input type='text' ng-model='username'>Username</input>
-  <input type='text' ng-model='password'>Password</input>
-  <button type='submit'>Submit</button>
-</form>
+<div class='loginContainer'>
+  <form name='loginForm' ng-submit='loginUser()'>
+  <h4>LOG IN, FELLOW PATRIOT!</h4>
+    <input type="text" ng-model="username" class="form-control input-sm chat-input" placeholder="username" />
+    <input type="text" ng-model='password' class="form-control input-sm chat-input" placeholder="password" />
+    <button class="btn btn-primary btn-md" type=submit>login <i class="fa fa-sign-in"></i></button>
+  </form>
+</div>

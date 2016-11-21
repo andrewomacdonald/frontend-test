@@ -3,15 +3,12 @@
   angular.module('techniColor')
     .controller('loginController', loginController);
 
-    function loginController($scope, loginFactory) {
-
+    function loginController($scope, $cookies, $state, loginFactory) {
       $scope.loginUser = function() {
-        console.log('INSIDE CONTROLLER');
-        console.log($scope.username);
-        console.log($scope.password);
-        loginFactory.login($scope.username, $scope.password).then(function(data) {
-          console.log(data);
-          return data;
+        loginFactory.login($scope.username, $scope.password).then(function(response) {
+          if(response.status===200) {
+            $state.go('states');
+          }
         }).catch(function(error) {
           console.log('error ', error);
         });

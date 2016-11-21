@@ -5,7 +5,7 @@ angular.module('techniColor')
 
   var factory = {};
 
-  function loginFactory($http) {
+  function loginFactory($http, $cookies) {
 
     factory.login = function (username, password) {
       return $http.post('/login', {'user': username, 'password': password}).then(function(data) {
@@ -14,6 +14,10 @@ angular.module('techniColor')
       }).catch(function(error) {
         console.log('FACTORY ERROR ', error);
       });
+    }
+
+    factory.isLoggedin = function () {
+      return !!$cookies.get('login');
     }
     return factory;
   }

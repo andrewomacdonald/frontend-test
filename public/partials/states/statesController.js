@@ -4,8 +4,7 @@
   angular.module('techniColor')
     .controller('statesController', statesController);
 
-    function statesController($scope, statesFactory) {
-      $scope.oneState = false;
+    function statesController($scope, $state, statesFactory, loginFactory) {
 
       $scope.stateList = function () {
         statesFactory.getStates().then(function(response) {
@@ -25,8 +24,12 @@
         });
       }
 
+      if(loginFactory.isLoggedin()) {
+        $scope.stateAbbreviations();
+        $scope.stateList();
+      } else {
+        $state.go('login');
+      }
 
-      $scope.stateAbbreviations();
-      $scope.stateList();
     }
 })();

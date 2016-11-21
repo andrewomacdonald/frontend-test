@@ -4,7 +4,7 @@
   angular.module('techniColor')
     .controller('guestbookController', guestbookController);
 
-    function guestbookController($scope, $rootScope, guestbookFactory) {
+    function guestbookController($scope, $state, loginFactory, guestbookFactory) {
 
       $scope.phoneNumberRegex = /^\(\d{3}\)\d{3}-\d{4}$/;
 
@@ -23,6 +23,11 @@
         })
       }
 
-      $scope.readGuestbook();
+      if(loginFactory.isLoggedin()){
+        $scope.readGuestbook();
+      } else {
+        $state.go('login');
+      } 
+
     }
 })();

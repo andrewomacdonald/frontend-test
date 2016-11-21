@@ -1,12 +1,10 @@
 'use strict';
 (function () {
-  angular.module('techniColor', ['ui.router']);
+  angular.module('techniColor', ['ui.router', 'ngCookies']);
 })();
 
-
-
 (function() {
-  angular.module('techniColor', ['ui.router'])
+  angular.module('techniColor', ['ui.router', 'ngCookies'])
     .config(['$stateProvider', function($stateProvider) {
 
       var applicationStates = [{

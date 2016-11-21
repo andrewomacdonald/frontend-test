@@ -1,11 +1,13 @@
 <H1>I AM A GUESTBOOK.</H1>
-<form ng-submit='writeToGuestbook()'>
-  <input type='text' ng-model='name' placeholder='Name'/>
-  <input type='text' ng-model='phoneNumber' placeholder='Phone Number'/>
-  <textarea class='messageArea' ng-model='message' placeholder='Enter a message here! FOR AMERICA.'/></textarea>
+<form ng-submit='writeToGuestbook()' name='guestbookForm'>
+  <div class='formFields'>
+    <input type='text' ng-model='phoneNumber' name='number' placeholder='Phone Number' required/>
+  </div>
+  <textarea class='messageArea' ng-model='message' placeholder='Enter a message here! FOR AMERICA.' required/></textarea>
   <button type='submit'>Submit message!</button>
 </form>
 
-<div ng-repeat='message in messages'>
-  {{message}}
+<div ng-repeat='message in messages' class='messageContainer'>
+    <div class='nameAndPhoneNumber'>Name: {{message.user}} <b>|</b> Phone Number: {{message.phone}}</div>
+    <div class='messageText'>{{message.message}}</div>
 </div>

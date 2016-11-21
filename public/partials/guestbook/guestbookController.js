@@ -6,15 +6,11 @@
 
     function guestbookController($scope, $rootScope, guestbookFactory) {
 
-      console.log($rootScope);
-
-
-      $scope.logger = function() {
-        console.log('hello. i am the guestbook controller. how are you today.');
-      }
-
       $scope.writeToGuestbook = function() {
-        guestbookFactory.writeToGuestbook($scope.name, $scope.phoneNumber, $scope.message).then(function(response){
+        guestbookFactory.writeToGuestbook($scope.user, $scope.phoneNumber, $scope.message).then(function(response){
+          response.data.forEach(function(value) {
+            console.log(typeof value.phone);
+          })
           $scope.messages = response.data;
           console.log($scope.messages);
         });

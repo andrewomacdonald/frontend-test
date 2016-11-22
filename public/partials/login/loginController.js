@@ -3,9 +3,11 @@
   angular.module('techniColor')
     .controller('loginController', loginController);
 
-    function loginController($scope, $cookies, $state, loginFactory) {
-      $scope.loginUser = function() {
-        loginFactory.login($scope.username, $scope.password).then(function(response) {
+    function loginController($cookies, $state, loginFactory) {
+      var loginCtrl = this;
+
+      loginCtrl.loginUser = function() {
+        loginFactory.login(loginCtrl.username, loginCtrl.password).then(function(response) {
           if(response === undefined) {
             return;
           }

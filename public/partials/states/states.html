@@ -1,22 +1,22 @@
 <div class='row'>
   <div class='span12'>
   <ul>
-    <h2><li><a ui-sref='states'>States</a> | <a ui-sref="guestbook">Guestbook</a> | <a ui-sref='login' ng-click='logout()'>Logout</a></li></h2>
+    <h2><li><a ui-sref='states'>States</a> | <a ui-sref="guestbook">Guestbook</a> | <a ui-sref='login' ng-click='statesCtrl.logout()'>Logout</a></li></h2>
   </ul>
   </div>
 </div>
 <div>
-  <select ng-model='abbrev'
+  <select ng-model='statesCtrl.abbrev'
           class='stateDropdown'
-          ng-change='getSpecificState()'>
+          ng-change='statesCtrl.getSpecificState()'>
     <option value='' disabled='disabled'>---Select A State!---</option>
-    <option ng-repeat='abbreviation in abbreviations'>{{abbreviation}}</option>
+    <option ng-repeat='abbreviation in statesCtrl.abbreviations'>{{abbreviation}}</option>
   </select>
-  <button type='button' ng-click='stateList()' ng-if='oneState'>Reset the entire List!</button>
+  <button type='button' ng-click='statesCtrl.stateList()' ng-if='statesCtrl.oneState'>Reset the entire List!</button>
 </div>
 <div class='state-container'
-     ng-repeat='state in states'
-     ng-class='oneState ? "singleState" : "stateContainter"'>
+     ng-repeat='state in statesCtrl.states'
+     ng-class='statesCtrl.oneState ? "singleState" : "stateContainter"'>
   <div class='stateName'>{{state.name}} ({{state.abbreviation}})</div>
     <div class='left-info'>
       <p><span class='fieldName'>Capital:</span> {{state.capital}}</p>

@@ -1,22 +1,22 @@
 <div class='row'>
   <div class='span12'>
   <ul>
-    <h2><li><a ui-sref='states'>States</a> | <a ui-sref="guestbook">Guestbook</a> | <a ui-sref='login' ng-click='logout()'>Logout</a></li></h2>
+    <h2><li><a ui-sref='states'>States</a> | <a ui-sref="guestbook">Guestbook</a> | <a ui-sref='login' ng-click='guestbookCtrl.logout()'>Logout</a></li></h2>
   </ul>
   </div>
 </div>
-<form ng-submit='guestbookForm.$valid && writeToGuestbook()' name='guestbookForm'>
+<form ng-submit='guestbookForm.$valid && guestbookCtrl.writeToGuestbook()' name='guestbookForm'>
   <input class='phoneNumber form-control input-sm chat-input'
          type='text'
-         ng-model='phoneNumber'
-         ng-pattern='phoneNumberRegex'
+         ng-model='guestbookCtrl.phoneNumber'
+         ng-pattern='guestbookCtrl.phoneNumberRegex'
          name='number'
          placeholder='Your phone number'
          required/>
   <p class='phoneNotification' ng-if='guestbookForm.number.$invalid'>Please enter a phone number in the format of (xxx)xxx-xxxx</p>
   <p class='phoneNotification' ng-if='guestbookForm.number.$valid'>You entered the correct phone format! CHECK OUT THE BIG BRAIN ON YOU.</p>
   <textarea class='messageArea'
-            ng-model='message'
+            ng-model='guestbookCtrl.message'
             placeholder='Enter a message here! FOR AMERICA.'
             maxlength='200'
             required/>
@@ -24,11 +24,11 @@
     <button type='submit' class='btn btn-primary btn-md'>Submit message!</button>
   </div>
 </form>
-<div ng-repeat='message in messages' class='messageContainer'>
+<div ng-repeat='message in guestbookCtrl.messages' class='messageContainer'>
     <div class='nameAndPhoneNumber'>Name: {{message.user}} <b>|</b> Phone Number: {{message.phone}}</div>
     <div class='messageText'>{{message.message}}</div>
 </div>
 <div class='messageContainer'>
-  <div class='nameAndPhoneNumber'>Name: {{secret.user}}</div>
-  <div class='messageText'>{{secret.message}}</div>
+  <div class='nameAndPhoneNumber'>Name: {{guestbookCtrl.secret.user}}</div>
+  <div class='messageText'>{{guestbookCtrl.secret.message}}</div>
 </div>

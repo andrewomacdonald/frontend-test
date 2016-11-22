@@ -1,8 +1,3 @@
-'use strict';
-(function () {
-  angular.module('techniColor', ['ui.router', 'ngCookies']);
-})();
-
 (function() {
   angular.module('techniColor', ['ui.router', 'ngCookies'])
     .config(['$stateProvider', function($stateProvider) {
@@ -11,25 +6,29 @@
         name: 'login',
         url: '/',
         templateUrl: 'partials/login/login.html',
-        controller: 'loginController'
+        controller: 'loginController',
+        controllerAs: 'loginCtrl'
       },
       {
         name: 'guestbook',
         url: '/guestbook',
         templateUrl: 'partials/guestbook/guestbook.html',
-        controller: 'guestbookController'
+        controller: 'guestbookController',
+        controllerAs: 'guestbookCtrl'
       },
       {
         name: 'states',
         url: '/states',
         templateUrl: 'partials/states/states.html',
-        controller: 'statesController'
+        controller: 'statesController',
+        controllerAs: 'statesCtrl'
       },
       {
         name: 'otherwise',
         url: '*path',
         templateUrl: 'partials/login/login.html',
-        controller: 'loginController'
+        controller: 'loginController',
+        controllerAs: 'loginCtrl'
       }];
 
       applicationStates.forEach(function(state) {

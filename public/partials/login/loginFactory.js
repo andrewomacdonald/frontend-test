@@ -5,7 +5,7 @@ angular.module('techniColor')
 
   var factory = {};
 
-  function loginFactory($http, $state, $cookies) {
+  function loginFactory($http, $state, $cookies, $timeout) {
 
     factory.login = function (username, password) {
       return $http.post('/login', {'user': username, 'password': password}).then(function(data) {
@@ -17,7 +17,9 @@ angular.module('techniColor')
     }
     factory.logout = function() {
       return $http.get('/logout').then(function(data) {
+        console.log('inside logout');
         $state.go('login');
+        swal('You have been logged out.', 'BUT NEVER FORGOTTEN.');
         return data;
       }).catch(function(error) {
         console.log('LOGOUT ERROR: ', error);

@@ -4,33 +4,34 @@
   angular.module('techniColor')
     .controller('statesController', statesController);
 
-    function statesController($scope, $state, statesFactory, loginFactory) {
-      $scope.stateList = function () {
+    function statesController($state, statesFactory, loginFactory) {
+      var statesCtrl = this;
+      statesCtrl.stateList = function () {
         statesFactory.getStates().then(function(response) {
-          $scope.oneState = false;
-          $scope.states = response.data;
+          statesCtrl.oneState = false;
+          statesCtrl.states = response.data;
         });
       }
-      $scope.getSpecificState = function () {
-          statesFactory.getStateFromDropdownMenu($scope.abbrev).then(function(response) {
-            $scope.oneState = true;
-            $scope.states = [response.data];
+      statesCtrl.getSpecificState = function () {
+          statesFactory.getStateFromDropdownMenu(statesCtrl.abbrev).then(function(response) {
+            statesCtrl.oneState = true;
+            statesCtrl.states = [response.data];
           });
       }
-      $scope.stateAbbreviations = function () {
+      statesCtrl.stateAbbreviations = function () {
         statesFactory.getStateAbbreviations().then(function(response) {
-          $scope.abbreviations = response.data;
+          statesCtrl.abbreviations = response.data;
         });
       }
 
       if(loginFactory.isLoggedin()) {
-        $scope.stateAbbreviations();
-        $scope.stateList();
+        statesCtrl.stateAbbreviations();
+        statesCtrl.stateList();
       } else {
         $state.go('login');
       }
 
-      $scope.logout = function() {
+      statesCtrl.logout = function() {
         loginFactory.logout();
       }
 

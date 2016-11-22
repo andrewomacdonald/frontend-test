@@ -13,8 +13,8 @@
          name='number'
          placeholder='Your phone number'
          required/>
-  <p class='phoneNotification' ng-if='guestbookForm.number.$invalid'>Please enter a phone number in the format of (xxx)xxx-xxxx</p>
-  <p class='phoneNotification' ng-if='guestbookForm.number.$valid'>You entered the correct phone format! CHECK OUT THE BIG BRAIN ON YOU.</p>
+  <p class='phoneNotification warning' ng-if='guestbookForm.number.$invalid'>Please enter a phone number in the format of (xxx)xxx-xxxx</p>
+  <p class='phoneNotification success' ng-if='guestbookForm.number.$valid'>You entered the correct phone format! CHECK OUT THE BIG BRAIN ON YOU.</p>
   <textarea class='messageArea'
             ng-model='guestbookCtrl.message'
             placeholder='Enter a message here! FOR AMERICA.'

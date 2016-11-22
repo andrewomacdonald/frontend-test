@@ -17,7 +17,6 @@ angular.module('techniColor')
     }
     factory.logout = function() {
       return $http.get('/logout').then(function(data) {
-        console.log('inside logout');
         $state.go('login');
         swal('You have been logged out.', 'BUT NEVER FORGOTTEN.');
         return data;

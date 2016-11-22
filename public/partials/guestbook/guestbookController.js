@@ -21,9 +21,7 @@
       }
       guestbookCtrl.getSecret = function() {
         guestbookFactory.secretMessage().then(function(response) {
-          console.log('response ', response);
           guestbookCtrl.secret = response.data;
-          console.log(guestbookCtrl.secret);
         })
       }
       guestbookCtrl.logout = function() {

@@ -1,8 +1,10 @@
 <div class='loginContainer'>
   <form name='loginForm' ng-submit='loginUser()'>
   <h4>LOG IN, FELLOW PATRIOT!</h4>
-    <input type="text" ng-model="username" class="form-control input-sm chat-input" placeholder="username" />
-    <input type="text" ng-model='password' class="form-control input-sm chat-input" placeholder="password" />
+    <input type="text" ng-model="username" class="form-control input-sm chat-input" placeholder="username" required/>
+    <input type="text" ng-model='password' class="form-control input-sm chat-input" placeholder="password" required/>
+  <div class='text-center'>
     <button class="btn btn-primary btn-md" type=submit>login <i class="fa fa-sign-in"></i></button>
+  </div>
   </form>
 </div>

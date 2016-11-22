@@ -1,28 +1,15 @@
 <html ng-app='techniColor'>
     <head>
         <title>USA! USA! USA!</title>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
+        <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css'/>
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
         <link href='app.less' type='text/css' rel='stylesheet/less'>
     </head>
-    <body  class="container">
-        <h2>OH I'M SORRY I THOUGHT THIS WAS 'MERICA</h2>
-
-        <nav class="navbar navbar-default row">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <ul class="nav navbar-nav">
-                        <li><a ui-sref="login">Login</a></li>
-                        <li><a ui-sref="guestbook">Guestbook</a></li>
-                        <li><a ui-sref='states'>States</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-
-        <div class="row">
-            <div class="span12">
-                <div class="well" ui-view></div>
+    <body  class="container" ng-cloak>
+        <div class='row'>
+            <div class='span12'>
+                <div ui-view ng-cloak></div>
             </div>
         </div>
 
@@ -30,13 +17,16 @@
         <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
 
         <!-- Angular Doodads and Knickknacks -->
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.js"></script>
         <script src="http://angular-ui.github.io/ui-router/release/angular-ui-router.js"></script>
-        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular-cookies.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-cookies.js"></script>
         <script src="app.js"></script>
 
         <!-- .less -->
         <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/2.7.1/less.min.js"></script>
+
+        <!-- Sweetalert -->
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert-dev.min.js'></script>
 
         <!-- Login -->
         <script src='partials/login/loginController.js'></script>

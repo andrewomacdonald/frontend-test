@@ -28,8 +28,7 @@ angular.module('techniColor')
     }
     factory.lazyLoad = function (offset) {
       offset+=10;
-      return $http.get('/states', {'offset':offset}).then(function(data) {
-        console.log(offset);
+      return $http.get('/states').then(function(data) {
         return data;
       }).catch(function(error) {
         console.log('FACTORY ERROR ', error);

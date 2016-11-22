@@ -5,7 +5,6 @@
     .controller('statesController', statesController);
 
     function statesController($scope, $state, statesFactory, loginFactory) {
-
       $scope.stateList = function () {
         statesFactory.getStates().then(function(response) {
           $scope.oneState = false;
@@ -29,6 +28,10 @@
         $scope.stateList();
       } else {
         $state.go('login');
+      }
+
+      $scope.logout = function() {
+        loginFactory.logout();
       }
 
     }

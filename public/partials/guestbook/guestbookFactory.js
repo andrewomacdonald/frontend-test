@@ -15,9 +15,14 @@ angular.module('techniColor')
       });
     }
 
+    factory.secretMessage = function() {
+      return $http.get('/secret').then(function(data) {
+        return data;
+      })
+    }
+
     factory.readGuestbook = function () {
       return $http.get('/read').then(function(data) {
-        console.log('INSIDE READ GUESTBOOK FACTORY', data);
         return data;
       }).catch(function(error) {
         console.log('FACTORY ERROR ', error);

@@ -24,6 +24,12 @@
         url: '/states',
         templateUrl: 'partials/states/states.html',
         controller: 'statesController'
+      },
+      {
+        name: 'otherwise',
+        url: '*path',
+        templateUrl: 'partials/login/login.html',
+        controller: 'loginController'
       }];
 
       applicationStates.forEach(function(state) {

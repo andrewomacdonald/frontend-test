@@ -9,25 +9,29 @@
       $scope.phoneNumberRegex = /^\(\d{3}\)\d{3}-\d{4}$/;
 
       $scope.writeToGuestbook = function() {
-
         guestbookFactory.writeToGuestbook($scope.user, $scope.phoneNumber, $scope.message).then(function(response){
           $scope.messages = response.data;
-          console.log($scope.messages);
         });
       }
-
       $scope.readGuestbook = function() {
         guestbookFactory.readGuestbook().then(function(response) {
           $scope.messages = response.data;
-          console.log($scope.messages);
         })
+      }
+      $scope.getSecret = function() {
+        guestbookFactory.secretMessage().then(function(response) {
+          $scope.secret = response.data;
+        })
+      }
+      $scope.logout = function() {
+        loginFactory.logout();
       }
 
       if(loginFactory.isLoggedin()){
-        $scope.readGuestbook();
+          $scope.readGuestbook();
+          $scope.getSecret();
       } else {
-        $state.go('login');
-      } 
-
+          $state.go('login');
+      }
     }
 })();

@@ -16,9 +16,8 @@ var users={
     dan: "password4"
 };
 var msgs = [
-    {user:'Taylor Swift', phone:'222-222-2222', message:"I'VE GOT A BLANK SPACE ON THIS TEAM ROSTER, AND ILL WRITE ANDY'S NAME"},
-    {user:'Kanye West', phone:'123-456-7890', message:"YO IMMA LET YOU FINISH BUT FIRST YOU SHOULD HIRE ANDY"},
-    {user:"kilroy", phone: "123 555 1212", message:"was here!"}
+    {user:'Taylor Swift', phone:'(222)222-2222', message:"I'VE GOT A BLANK SPACE ON THIS TEAM ROSTER, AND ILL WRITE ANDY'S NAME"},
+    {user:'Kanye West', phone:'(123)456-7890', message:"YO IMMA LET YOU FINISH BUT FIRST YOU SHOULD HIRE ANDY"},
 ];
 
 app.use(cookieParser());
@@ -109,7 +108,7 @@ app.get('/secret', function(request, response) {
     if (users[user] === undefined) {
         return sendUnauthorized(response);
     }
-    response.json({user: user, message: "This is the secret message"});
+    response.json({user: user, message: "THIS IS A SECRET MESSAGE THAT SHOWS HOW CLEVER AND OBSERVANT I AM BECAUSE I NOTICED THERE WAS A SECRET ROUTE IN THE SERVER.JS FILE. AREN'T I A FANCY LAD. MOVE ALONG NOW."});
 });
 
 app.post('/write', function(request, response) {

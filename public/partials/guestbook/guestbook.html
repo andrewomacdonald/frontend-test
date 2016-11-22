@@ -1,6 +1,12 @@
-<H1>I AM A GUESTBOOK.</H1>
+<div class='row'>
+  <div class='span12'>
+  <ul>
+    <h2><li><a ui-sref='states'>States</a> | <a ui-sref="guestbook">Guestbook</a> | <a ui-sref='login' ng-click='logout()'>Logout</a></li></h2>
+  </ul>
+  </div>
+</div>
 <form ng-submit='guestbookForm.$valid && writeToGuestbook()' name='guestbookForm'>
-  <input class='phoneNumber'
+  <input class='phoneNumber form-control input-sm chat-input'
          type='text'
          ng-model='phoneNumber'
          ng-pattern='phoneNumberRegex'
@@ -14,10 +20,15 @@
             placeholder='Enter a message here! FOR AMERICA.'
             maxlength='200'
             required/>
-  <button type='submit'>Submit message!</button>
+  <div class='centered'>
+    <button type='submit' class='btn btn-primary btn-md'>Submit message!</button>
+  </div>
 </form>
-
 <div ng-repeat='message in messages' class='messageContainer'>
     <div class='nameAndPhoneNumber'>Name: {{message.user}} <b>|</b> Phone Number: {{message.phone}}</div>
     <div class='messageText'>{{message.message}}</div>
+</div>
+<div class='messageContainer'>
+  <div class='nameAndPhoneNumber'>Name: {{secret.user}}</div>
+  <div class='messageText'>{{secret.message}}</div>
 </div>
